@@ -5,7 +5,7 @@ function validAnagram(first, second) {
 
   const lookup = {};
 
-  for (let i = 0; i < first.length; i++) {
+  for (let i in first) {
     let letter = first[i];
     // if letter exists, increment, otherwise set to 1
     lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
@@ -26,4 +26,4 @@ function validAnagram(first, second) {
 }
 
 // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
-validAnagram('anagrams', 'nagaramm')
+console.log(validAnagram('anagrams', 'nagaramm'))
