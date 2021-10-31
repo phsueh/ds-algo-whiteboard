@@ -7,8 +7,10 @@ function validAnagram(first, second) {
 
   for (let i in first) {
     let letter = first[i];
+    
     // if letter exists, increment, otherwise set to 1
     lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+    console.log(lookup[letter])
   }
   console.log(lookup)
 
