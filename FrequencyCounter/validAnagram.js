@@ -21,17 +21,15 @@ function validAnagram(str1, str2) {
         anagramCompare2[char] = (anagramCompare2[char] || 0) + 1
     }
 
+    console.log(anagramCompare1)
+    console.log(anagramCompare2)
+
     for (let char in anagramCompare1){
         if(anagramCompare1[char] !== anagramCompare2[char]){
             return false
         }
     }
-
     return true
-
-    // console.log(anagramCompare1)
-    // console.log(anagramCompare2)
-
 }
 
-console.log(validAnagram('anagrams', 'nagaramm'))
+console.log(validAnagram('awesome', 'awesom'))

@@ -1,3 +1,6 @@
+// write a function that returns 2 elements in an array that sum to 0
+// this solution does not return all combination though
+
 // naive solution
 
 // function sumZero(arr){
@@ -30,4 +33,5 @@ function sumZero(arr){
 
 
 
+console.log(sumZero([-4,-3,-2,-1,0,1,2,4,5]))
 console.log(sumZero([-4,-3,-2,-1,0,1,2,5]))

@@ -1,3 +1,5 @@
+// solution to count unique values 
+
 function countUniqueValues(arr){
     if(arr.length === 0) return 0;
     var i = 0;
