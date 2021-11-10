@@ -48,4 +48,4 @@ console.log(sameFrequency(22,222)) // false
 
 // lessons learned
     // I cannot do a .length on an int
-    // how do assign key values from a loop
+    // how do assign key values from looping over a string
