@@ -5,30 +5,29 @@
 
 // Solution 1
 
-function areThereDuplicates1(arg) {
+function areThereDuplicates1() {
     let lookup = {}
 
-    for (let i = 0; i <= arg.length; i++) {
-        lookup[arg[i]] ? lookup[arg[i]] += 1 : lookup[arg[i]] = 1
+    for (let i in arguments) {
+      lookup[arguments[i]] ? lookup[arguments[i]] += 1 : lookup[arguments[i]] = 1
     }
+
 
     for (let key in lookup) {
-
+      if (lookup[key] > 1) return true
     }
 
-    console.log(lookup)
-
-
-
+    return false
   }
 
 console.log(areThereDuplicates1(1, 2, 3))
+console.log(areThereDuplicates1(1, 2, 2))
+console.log(areThereDuplicates1('a', 'b', 'c', 'a'))
 
-// Solution 2
+// Solution 2 - come back to this solution
 
 
-// console.log(areThereDuplicates(1, 2, 2))
-// console.log(areThereDuplicates('a', 'b', 'c', 'a'))
+
 
 // lessons learned 
   // for-in is better for looping through objects
