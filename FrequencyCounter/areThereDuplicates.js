@@ -20,14 +20,39 @@ function areThereDuplicates1() {
     return false
   }
 
-console.log(areThereDuplicates1(1, 2, 3))
-console.log(areThereDuplicates1(1, 2, 2))
-console.log(areThereDuplicates1('a', 'b', 'c', 'a'))
+// console.log(areThereDuplicates1(1, 2, 3))
+// console.log(areThereDuplicates1(1, 2, 2))
+// console.log(areThereDuplicates1('a', 'b', 'c', 'a'))
 
-// Solution 2 - come back to this solution
+// Solution 2 
 
+function areThereDuplicates2(...args) {
+  args.sort((a,b) => a > b)
+  let start = 0 
+  let next = 1
 
+  while (next < args.length){
+    if (args[start] === args[next]){
+      return true
+    }
+    start ++
+    next ++
+  }
 
+  return false
+}
+
+// console.log(areThereDuplicates2(1, 2, 3))
+
+// Solution 3 - one linear solution
+
+function areThereDuplicates3(){ 
+  return new Set(arguments).size !== arguments.length
+}
+
+console.log(areThereDuplicates3(1, 2, 3, 3))
 
 // lessons learned 
   // for-in is better for looping through objects
+  // Set in JS will only store unqiue values - there are also alot of interesting functionalities https://www.youtube.com/watch?v=nGOnfYNo8F4
+  // return new Set(arguments).size !== arguments.length returns a bolean value 
