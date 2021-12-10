@@ -1,6 +1,4 @@
-// write a function that accepts 2 parameters - an array of possitive integers and a positive integer
-
-// function should return the minimal array equal to the sum passed into the function 
+// try to determine the smallest subarray where the sum would equal Sum
 
 function minSubArraySum(arr, sum){
 
