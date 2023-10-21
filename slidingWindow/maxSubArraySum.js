@@ -1,4 +1,4 @@
-// Attempt 4
+// Attempt 5
 
 
 // Sliding Window - maxSubarraySum
@@ -47,3 +47,7 @@ console.log(maxSubarraySum([100, 200, 300, 400], 2))
 // "sliding window" does not mean that a window is moving through the loop rather. I am just subtracting and adding 
 // The loop keeps running until we get through every value and then returns the maxSum
     // maxSum gets reassigned 
+// I have a tendency to forgot how to implement the second for-loop
+    // I need to subtrack the first element, it's not one subarray and then move to outside the subarry the subarry is different just by removing one element 
+    // why was I thinking plus 1? I need to add outside the range but I'm already adding somethinew new becaus the first range included one less
+// rember that the int for the desired length is the window

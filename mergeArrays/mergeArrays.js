@@ -23,5 +23,7 @@ function merge(arr1, arr2){
     return results;
 }
 merge([100,200], [1,2,3,5,6])
+merge([], [1,2,3,5,6])
+
 
                    

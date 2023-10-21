@@ -1,4 +1,4 @@
-// Attempt 2
+// Attempt 3
 
 // write a function that accepts 2 parameters - an array of possitive integers and a positive integer
 
@@ -25,7 +25,7 @@ function minSubArrayLen(arr, sum){
     let start = 0 
     let end = 0
     let minLength = Infinity
-
+    
     while (start < arr.length) {
         if (total < sum && end < arr.length) {
             total += arr[end]
