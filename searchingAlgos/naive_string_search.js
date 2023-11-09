@@ -1,3 +1,5 @@
+// find how many times a substring appears in a larger string
+
 console.log(
     naiveSearch("lorie loled", "lol")
 )
@@ -10,7 +12,7 @@ function naiveSearch(long, short){
            if(j === short.length - 1) count++;
         }
     }
-    return count;
+    return short + " appears " + count + " time(s)"
 }
 
 naiveSearch("lorie loled", "lol")
