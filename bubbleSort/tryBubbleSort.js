@@ -1,5 +1,10 @@
 // given an arr of numbers sort the array where the values are smallest to largest
 
+// based on the optimized solution it's a good candidate if I know my data is reletively sorted - it can be o(n) otherwise it's o(n^2)
+// if our data is almost sort, we might have problem because a long array would take up a lot of time
+    // the solution is the check is to check if we did swap 
+    // if not swaps up stop
+
 function naiveBubbleSort(arr) {
     for(let i = 0; i < arr.length; i++){
         for(let j = 0; j < arr.length; j++){
@@ -91,4 +96,30 @@ function evenBetterBubbleSort(arr) {
 
 console.log(evenBetterBubbleSort([8,1,2,3,4,5,6,7]))
 
-// based on the optimized solution it's a good candidate if I know my data is reletively sorted - it can be o(n) otherwise it's o(n^2)
+
+
+function bubbleSort(arr) {
+    for (let i = arr.length; i > 0; i--) { // i = 3, 2, 1 // we are decrementing so we end at zero
+        for (let j = 0; j < i-1; j++) { // j = 2, 1, 0 - no more looping I can't loop negative times,
+            // starting at zero, loop 2 times
+            // starting at zero, loop 1 times
+            // we are incrementing so we start at zero
+            console.log(arr, arr[j], arr[j+1], j, j+1)
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+
+
+function doesZeroLoop(arr) {
+    for (let i = 0; i < 1; i++) {
+        return "are you looping?"
+    }
+    return "I did not loop over " + arr
+}
+

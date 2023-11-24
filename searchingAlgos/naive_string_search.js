@@ -15,4 +15,4 @@ function naiveSearch(long, short){
     return short + " appears " + count + " time(s)"
 }
 
-naiveSearch("lorie loled", "lol")
+console.log(naiveSearch("lorie loled", "lol"))

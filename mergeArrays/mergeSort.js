@@ -1,4 +1,5 @@
 // Merge function from earlier
+// comparing each item on left to the item on the right first
 function merge(arr1, arr2){
     let results = [];
     let i = 0;

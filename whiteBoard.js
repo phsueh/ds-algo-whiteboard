@@ -1,30 +1,35 @@
-// step 1 rephrase: In a larger string find the number of times a a substring occurs
-// step 2 edgecase, usecases, inputs, outputs: can be use in searching for products or articles, inputs 2 strings, output integer, if string is empty, 
-// step 3 sudo: 
-    // create variable called count to store occurance 
-    // loop over first string search the "row"
-    // loop over second string 
-        // check if the next character is the same  if not break out of the inner loop
-        // if the the index we're on matches the length of the string increase the count
-            // this is because we have a check to see if the next value is equal - this is how it works
-    
-// step 4 solve: 
-// step 5 refactor: 
+// check how a a next for-loop is working in the naive solution
 
-// when doing a nested for-loop what direction as we searching?
-
-function naiveSearch(long, short) { 
-    let count = 0;
-    for (let i = 0; i < long.length; i++) {
-        for (let j = 0; j < short.length; j++) {
-            if (short[j] !== long[j+i]) break
-            if (j === short.length - 1) count++
+function bubbleSort(arr) {
+    let noSwaps;
+    for (let i = arr.length; i > 0; i--) { // i = 3, 2, 1 // we are decrementing so we end at zero
+        noSwaps = true;
+        for (let j = 0; j < i-1; j++) { // j = 2, 1, 0 - no more looping I can't loop negative times,
+            // starting at zero, loop 2 times
+            // starting at zero, loop 1 times
+            // we are incrementing so we start at zero
+            console.log(arr, arr[j], arr[j+1], j, j+1)
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+                noSwaps = false; 
+            }
         }
+        if (noSwaps) break;
     }
+}
 
-    return short + " appears " + count + " time(s)"
+
+
+function doesZeroLoop(arr) {
+    for (let i = 0; i < 1; i++) {
+        return "are you looping?"
+    }
+    return "I did not loop over " + arr
 }
 
 console.log(
-    naiveSearch("lorie loled", "lol")
+    // bubbleSort([37,45,29,8]),
+    doesZeroLoop([37,45,29,8])
 )
