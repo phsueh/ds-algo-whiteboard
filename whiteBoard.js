@@ -1,35 +1,33 @@
-// check how a a next for-loop is working in the naive solution
-
-function bubbleSort(arr) {
-    let noSwaps;
-    for (let i = arr.length; i > 0; i--) { // i = 3, 2, 1 // we are decrementing so we end at zero
-        noSwaps = true;
-        for (let j = 0; j < i-1; j++) { // j = 2, 1, 0 - no more looping I can't loop negative times,
-            // starting at zero, loop 2 times
-            // starting at zero, loop 1 times
-            // we are incrementing so we start at zero
-            console.log(arr, arr[j], arr[j+1], j, j+1)
-            if (arr[j] > arr[j+1]) {
-                let temp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = temp;
-                noSwaps = false; 
-            }
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    let mid = Math.floor(arr.length / 2);
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+    return merge(left, right);
+}
+    
+function merge(arr1, arr2) {
+    let results = [];
+    let i = 0;
+    let j = 0;
+    while(i < arr1.length && j < arr2.length){
+        if(arr2[j] > arr1[i]){
+            results.push(arr1[i]);
+            i++;
+        } else {
+            results.push(arr2[j])
+            j++;
         }
-        if (noSwaps) break;
     }
+    while(i < arr1.length) {
+        results.push(arr1[i])
+        i++;
+    }
+    while(j < arr2.length) {
+        results.push(arr2[j])
+        j++;
+    }
+    return results;
 }
 
-
-
-function doesZeroLoop(arr) {
-    for (let i = 0; i < 1; i++) {
-        return "are you looping?"
-    }
-    return "I did not loop over " + arr
-}
-
-console.log(
-    // bubbleSort([37,45,29,8]),
-    doesZeroLoop([37,45,29,8])
-)
+console.log(mergeSort([10,24,76,73]))

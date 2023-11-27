@@ -1,5 +1,8 @@
 // Merge function from earlier
 // comparing each item on left to the item on the right first
+// O(Log N) runtime, no randomization happening
+// taking 2 sorted arrays and then combining them into 1 sorted array
+// the merge function is also sorting
 function merge(arr1, arr2){
     let results = [];
     let i = 0;
@@ -25,12 +28,15 @@ function merge(arr1, arr2){
 }
 
 // Recrusive Merge Sort
+// breaking the array
 function mergeSort(arr){
     if(arr.length <= 1) return arr;
     let mid = Math.floor(arr.length/2);
     let left = mergeSort(arr.slice(0,mid));
     let right = mergeSort(arr.slice(mid));
-    return merge(left, sright);
+    return merge(left, right);
 }
 
 mergeSort([10,24,76,73])
+mergeSort([1,10,50], [2,14,99,100])
+mergeSort([1,10,50,2,14,99,100])
