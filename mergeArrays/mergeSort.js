@@ -1,7 +1,9 @@
+// Prompt: Implement merge sort
+// taking 2 sorted arrays and then combining them into 1 sorted array
 // Merge function from earlier
 // comparing each item on left to the item on the right first
 // O(Log N) runtime, no randomization happening
-// taking 2 sorted arrays and then combining them into 1 sorted array
+
 // the merge function is also sorting
 function merge(arr1, arr2){
     let results = [];
