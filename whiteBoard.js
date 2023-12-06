@@ -1,30 +1,39 @@
-class Node { 
-  constructor(val) {
-    this.value = val;
-    this.next  = null;
+function minRemoveToMakeValid(s) {
+  const stack = [];
+  const marked = new Set();
+
+  // Iterate through the string to find unpaired parentheses
+  for (let i = 0; i < s.length; i++) {
+      if (s[i] === '(') {
+          stack.push(i);
+      } else if (s[i] === ')') {
+          if (stack.length === 0) {
+              marked.add(i);
+          } else {
+              stack.pop();
+          }
+      }
   }
+
+  // Add remaining unpaired opening parentheses to the set
+  while (stack.length > 0) {
+      marked.add(stack.pop());
+  }
+
+  // Build the result string without marked parentheses
+
+  console.log(marked)
+  let result = '';
+  for (let i = 0; i < s.length; i++) {
+    console.log(s[i])
+      if (!marked.has(i)) { //if it's not marked
+          result += s[i];
+      }
+  }
+
+  return result;
 }
 
-class SinglyLinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null; 
-    this.length = 0;
- }
-
-// head is to the left think of it as a caterlpiller
-// we push to the end of the list
-
- push(val) { // head and tail all reference a node
-  let newNode = new Node(val);
-  if (!this.head) {
-    this.head = newNode;
-    this.tail = this.head;
-  } else {
-    this.tail.next = newNode; 
-    this.tail = newNode; 
-  }
-  this.length++;
-  return this; // this linked list
- }
-}
+const input = "lee(t(c)o)de)";
+const result = minRemoveToMakeValid(input);
+console.log(result); // Output: "lee(t(c)o)de"
