@@ -79,7 +79,7 @@ class BinarySearchTree {
         }
         return data;
     }
-    DFSPreOrder(){
+    DFSPreOrder(){ // making a copy
         var data = [];
         function traverse(node){
             data.push(node.value);
@@ -89,7 +89,7 @@ class BinarySearchTree {
         traverse(this.root);
         return data;
     }
-    DFSPostOrder(){
+    DFSPostOrder(){ // deleting
         var data = [];
         function traverse(node){
             if(node.left) traverse(node.left);
@@ -99,7 +99,7 @@ class BinarySearchTree {
         traverse(this.root);
         return data;
     }
-    DFSInOrder(){
+    DFSInOrder(){ // sorting
         var data = [];
         function traverse(node){
             if(node.left) traverse(node.left);
