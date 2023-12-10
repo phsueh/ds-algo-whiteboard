@@ -1,27 +1,29 @@
-class BinarySearchTree {
-  BFS() {
-    let node = this.root;
-    let data = [];
-    let queue = [];
-    queue.push(node);
-
-    while (queue.length) {
-      node = queue.shift();
-      data.push(node.value);
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
+function reverseVowels(s) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    const strArray = s.split('');
+    let i = 0;
+    let j = strArray.length - 1;
+  
+    while (i < j) {
+      while (i < j && !vowels.has(strArray[i])) {
+        i++;
+      }
+  
+      while (i < j && !vowels.has(strArray[j])) {
+        j--;
+      }
+  
+      // Swap vowels at positions i and j
+      [strArray[i], strArray[j]] = [strArray[j], strArray[i]];
+  
+      i++;
+      j--;
     }
-    return data;
+  
+    return strArray.join('');
   }
-
-  DFSPreOrder() {
-    let data = [];
-    function traverse(node) {
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
-      data.push(node.value);
-    }
-    traverse(this.root);
-    return data;
-  }
-}
+  
+  // Example usage:
+  const inputString = "hello";
+  const reversedString = reverseVowels(inputString);
+  console.log(reversedString); // Output: "holle"
