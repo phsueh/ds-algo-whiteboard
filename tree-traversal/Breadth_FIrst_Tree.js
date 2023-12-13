@@ -74,8 +74,8 @@ class BinarySearchTree {
         while(queue.length){
            node = queue.shift();
            data.push(node.value);
-           if(node.left) queue.push(node.left);
-           if(node.right) queue.push(node.right);
+           if(node.left) queue.push(node.left); // pushing a new value into the queue causing the size to increase
+           if(node.right) queue.push(node.right); // same thing here
         }
         return data;
     }
@@ -90,5 +90,3 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 tree.BFS();
-    
-

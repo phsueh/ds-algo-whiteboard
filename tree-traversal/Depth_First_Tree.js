@@ -74,7 +74,7 @@ class BinarySearchTree {
         while(queue.length){
            node = queue.shift();
            data.push(node.value);
-           if(node.left) queue.push(node.left);
+           if(node.left) queue.push(node.left); // how is the right node being check on a left subtree, when does it switch, how is the stack working?
            if(node.right) queue.push(node.right);
         }
         return data;
