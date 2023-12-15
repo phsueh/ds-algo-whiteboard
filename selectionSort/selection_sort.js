@@ -1,5 +1,7 @@
 // Implement selection sort, sort smallest value to largest value given an array of intergers. Selection sort the smallest value is being swapped to the beginning better for memeory management because less swapping occures comparied to bubble sort. O(n^2). Sorted data is accumulating at the beginning. Selection sort is finding the the minimum value and put it in the front. Swap the minimum value with the index that the loop started with
 
+// determine the lowest value "within each loop", save that value, then move that value to the beginning
+// the lowest is being being updated and then compared in the inner loop
 
 
 // console.log(

@@ -108,14 +108,23 @@ class SinglyLinkedList{
       this.tail = node;
       var next;
       var prev = null;
+      // keep track of the next node and prev node
+      // example [1,2,3,4,5]
       for(var i = 0; i < this.length; i++){
-        next = node.next;
-        node.next = prev;
-        prev = node;
-        node = next;
+        next = node.next; // 2, 3, 4, 5
+        node.next = prev; // null, 1, 2, 3 
+        prev = node; // 1, 2, 3, 4
+        node = next; // 2, 3, 4, 5
       }
       return this;
     }
+
+    // when on an element save the next node
+    // then reassign the next to equal to prev
+    // update prev to be equal to current node
+    // reassign the node to be equal to the next node
+    // it's really hard to move things that have connections
+
     print(){
         var arr = [];
         var current = this.head
