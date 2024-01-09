@@ -1,49 +1,33 @@
-function solution(src) {
+var majorityElement = function(nums) {
+    
+    // hash table
+    // find largest value and return the key
 
-    let srcArr = src.split(" ");
-    let resultArr = new Array; 
+    let hashTable = {}; 
 
-    console.log(src)
-
-    for (let i = 0; i < srcArr.length; i++) {
-        let str = srcArr[i];
-        let tempStr = "";
-        for (let j = 0; j < str.length; j++) {
-            if (str[j] === '_' && str[j+1] !== '_' && str[j-1] !== '_' && str[j+1] !== undefined && str[j-1] !== undefined) {
-                tempStr += str[j+1].toUpperCase(); 
-                j += 2;
-            }
-            tempStr += str[j];
+    for (let i = 0; i < nums.length; i++) {
+        if (hashTable[nums[i]] > 0) {
+            hashTable[nums[i]]++;
+        } else {
+            hashTable[nums[i]] = 1; 
         }
-        resultArr.push(tempStr)
     }
 
-    return resultArr.join(" ");
+    let count = 0;
+    let majEle; 
 
-}
-
-let solution2 = function(src) {
-    console.log(src)
-    let resultStr = "";
-    for (let i = 0; i < src.length; i++) {
-        if (
-            src.charCodeAt(i) === 95 && 
-            src.charCodeAt(i+1) !== 95 && 
-            src.charCodeAt(i-1) !== 95 && 
-            src.charCodeAt(i+1) !== 32 &&
-            src.charCodeAt(i-1) !== 32) {
-                resultStr += src[i+1].toUpperCase();
-                i += 2; 
+    for (let ele in hashTable) {
+        if (hashTable[ele] > count) {
+            count = hashTable[ele];
+            majEle = ele; 
         }
-        resultStr += src[i];
     }
-    return resultStr; 
-}
+
+    return majEle;
+
+};
 
 console.log(
-    solution("the comp_anies co_vention is to use __camel_case not_ __sn_ake case like _the_variable"),
-)
-
-console.log(
-    solution2("the comp_anies co_vention is to use __camel_case not_ __sn_ake case like _the_variable")
+    majorityElement([3,2,3]),
+    // majorityElement([2,2,1,1,1,2,2])
 )
