@@ -2,7 +2,7 @@
 
 // determine the lowest value "within each loop", save that value, then move that value to the beginning
 // the lowest is being being updated and then compared in the inner loop
-
+// always reseting i because we are always comparing it
 
 // console.log(
 //   selectionSort([0,2,34,22,10,19,17]), 
@@ -12,7 +12,7 @@
 // LEGACY VERSION (non ES2015 syntax)
 function selectionSort(arr){
     for(var i = 0; i < arr.length; i++){
-        var lowest = i;
+        var lowest = i; // with each inner loop I will determine if I is lowest out of the remaining
         for(var j = i+1; j < arr.length; j++){
             if(arr[j] < arr[lowest]){
                 lowest = j;
