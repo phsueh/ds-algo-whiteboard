@@ -3,6 +3,7 @@
 // determine the lowest value "within each loop", save that value, then move that value to the beginning
 // the lowest is being being updated and then compared in the inner loop
 // always reseting i because we are always comparing it
+// the first half is being sorted
 
 // console.log(
 //   selectionSort([0,2,34,22,10,19,17]), 

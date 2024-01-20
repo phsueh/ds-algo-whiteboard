@@ -1,23 +1,35 @@
-let selectionSort = (arr) => {
-
-    let swap = (arr, i, j) => {
-        [arr[i], arr[j]] = [arr[j], arr[i]]; 
+class Node {
+    constructor(val) {
+        this.val = val; 
+        this.next = null;
     }
-
-    for (let i = 0; i < arr.length; i++) {
-        let lowest = i; 
-        
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[lowest]) lowest = j; 
-        }
-
-        if (lowest !== i) swap(arr, i, lowest); 
-    }
-
-    return arr; 
 }
 
-console.log(
-    selectionSort([0,2,34,22,10,19,17]),
-    selectionSort([-3, -2, -1, 0, 1, 2, 3, 34]),
-    )
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+    push(val){
+        let newNode = new Node(val);
+        if (!this.head) { // it not null - not null is true
+            this.head = newNode; 
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode; 
+            this.tail = newNode; 
+        }
+        this.length++; 
+        return this // the list
+    }
+}
+
+class Speak {
+    sayHello() {
+        console.log("hello, world!")
+    }
+}
+
+module.exports = {SinglyLinkedList}

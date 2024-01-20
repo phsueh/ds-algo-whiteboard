@@ -56,3 +56,36 @@ minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11), // 2
 minSubArrayLen([1,4,16,22,5,7,8,9,10],95) // 0    
 )
 
+// the below solutions does not work I want to figure out why someday
+
+var minSubArrayLen2 = function(target, nums) {
+        
+    let current = 0; 
+    let pointer = 0 
+    let minLength = nums.length; //4
+    let currentMinLength = nums.length;
+    let sum = 0;
+
+    while (current <= nums.length && pointer < nums.length) {
+        if (nums[current] === target) return 1;
+        if (sum < target) {
+            sum += nums[pointer];
+            console.log(sum)
+            pointer++; //4
+        } else {
+            currentMinLength = pointer - current; // accouting for zeroth index
+            minLength = Math.min(minLength, currentMinLength);
+            current++; 
+            pointer = current; 
+            sum = 0; 
+        }
+    }
+
+    
+
+    if (sum < target) {
+        return 0;
+    } else {
+        return minLength;
+    }
+}

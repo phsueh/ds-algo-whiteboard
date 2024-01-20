@@ -20,3 +20,5 @@ function bubbleSort(arr){
 console.log(bubbleSort([8,1,2,3,4,5,6,7])); 
 
 // new swapped value is being compared
+// the largest element is being bubbled up because the value is always being compared within the for-loop
+// the last element will be sorted
