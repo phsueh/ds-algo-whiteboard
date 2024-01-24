@@ -23,11 +23,11 @@ class SinglyLinkedList{
         this.length++;
         return this;
     }
-    pop(){
-        if(!this.head) return undefined;
+    pop(){ // method requires finding the node before the current tail. we find that node by finding the value of the node that occures before a node the returns null after calling .next on the node. These nodes have a one way vision so I need to "see where each node is going "
+        if(!this.head) return undefined; // if no head nothing to pop
         var current = this.head;
         var newTail = current;
-        while(current.next){
+        while(current.next){ // at some point current.next will be null - how did .next become null for the current tail? - become .next will always be null unless assigned a value by the push method
             newTail = current;
             current = current.next;
         }

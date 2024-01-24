@@ -12,24 +12,41 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
-    push(val){
-        let newNode = new Node(val);
-        if (!this.head) { // it not null - not null is true
-            this.head = newNode; 
+    // implement push
+    push(val) {
+        let newNode = new Node(val); 
+        if (!this.head) {
+            this.head = newNode;
             this.tail = newNode;
         } else {
             this.tail.next = newNode; 
-            this.tail = newNode; 
+            this.tail = newNode;
         }
-        this.length++; 
-        return this // the list
+        this.length++
+        return this
     }
-}
 
-class Speak {
-    sayHello() {
-        console.log("hello, world!")
+    pop() {
+        if (!this.head) return undefined; 
+        let popNode = this.head
+        let newTail = popNode
+
+        while(popNode.next) {
+            newTail = popNode;
+            popNode = popNode.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length --;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null; 
+        }
+        return "popped" + popNode;
     }
+
+
+
 }
 
 module.exports = {SinglyLinkedList}
