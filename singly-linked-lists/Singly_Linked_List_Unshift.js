@@ -23,7 +23,7 @@ class SinglyLinkedList{
         this.length++;
         return this;
     }
-    pop(){
+    pop(){ // removing tail
         if(!this.head) return undefined;
         var current = this.head;
         var newTail = current;
@@ -40,7 +40,7 @@ class SinglyLinkedList{
         }
         return current;
     }
-    shift(){
+    shift(){ // removing head
         if(!this.head) return undefined;
         var currentHead = this.head;
         this.head = currentHead.next;
