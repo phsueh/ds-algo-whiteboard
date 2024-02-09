@@ -1,109 +1,87 @@
-var canConstruct = function(ransomNote, magazine) {
-    let ransomHash = {};
-    let magHash = {};
+class Node {
+    constructor(val) {
+        this.val = val; 
+        this.next = null;
+    }
+}
 
-    for (let i = 0; i < ransomNote.length; i++) {
-        if (ransomHash[ransomNote[i]] > 0) {
-            ransomHash[ransomNote[i]]++;
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+    // implement push // add a node to the end of a list
+    push(val) {
+        let newNode = new Node(val); 
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
         } else {
-            ransomHash[ransomNote[i]] = 1;
+            this.tail.next = newNode; 
+            this.tail = newNode;
         }
+        this.length++
+        return this
     }
 
-    for (let i = 0; i < magazine.length; i++) {
-        if (magHash[magazine[i]] > 0) {
-            magHash[magazine[i]]++;          
-        } else {
-            magHash[magazine[i]] = 1; 
+    // implement pop - this is the harder on for me because of moving to the end
+    pop() {
+        if(!this.head) return undefined; 
+        let current = this.head;
+        let newTail = current;
+        while(current.next) {
+            newTail = current;
+            current = current.next;
         }
+        this.tail = newTail; 
+        this.tail.next = null;
+        this.length --; 
+        if (this.length == 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current; 
     }
-    
-    // console.log(
-    //     ransomHash, magHash
-    // )
 
-    for (let char in ransomHash) {
-        if (!(char in magHash)) {
-            return false;
+    // implement shift - removes the head
+    shift() {
+        if (!this.head) return undefined;
+        let currentHead = this.head;
+        this.head = currentHead.next
+        this.length --
+        if (this.length === 0) {
+            this.tail = null;
         }
-        if (magHash[char] < ransomHash[char]) { 
-            return false
-        }
+        return currentHead; // head that was removed
     }
-    
-    return true; 
 
-};
+    // adds a value to beginning
+    unshift(val) {
+        let newNode = new Node(val); 
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        }
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++; 
+        return this; 
+    }
 
-console.log(
-    canConstruct("a", "b"), // false
-    canConstruct("aa","ab"), // false
-    canConstruct("aa","aab"), // true
-    canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi") // false
-)
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let counter = 0; 
+        let current = this.head;
+        while(counter !== index) {
+            current = current.next;
+            counter++
+        }
 
+        return current
+    }
 
-// class Node {
-//     constructor(val) {
-//         this.val = val; 
-//         this.next = null;
-//     }
-// }
+}
 
-// class SinglyLinkedList {
-//     constructor() {
-//         this.head = null;
-//         this.tail = null;
-//         this.length = 0;
-//     }
-
-//     // implement push
-//     push(val) {
-//         let newNode = new Node(val); 
-//         if (!this.head) {
-//             this.head = newNode;
-//             this.tail = newNode;
-//         } else {
-//             this.tail.next = newNode; 
-//             this.tail = newNode;
-//         }
-//         this.length++
-//         return this
-//     }
-
-//     // implement pop
-//     pop() {
-
-//         if (this.length === 0) return undefined + " : list is empty"; 
-//         let current = this.head; // node to pop
-//         let newTail = current;
-//         while (current.next) {
-//             newTail = current
-//             current = current.next
-//         } 
-//         this.length -- ;
-//         if (this.length == 0) {
-//             this.head = null;
-//             this.tail = null;
-//         } else {
-//             this.tail = newTail;
-//             this.tail.next = null;
-//         }
-//         return current;
-//     }
-
-//     // implement shift
-//     shift() {
-//         if (!this.head) return undefined;
-//         let currentHead = this.head;
-//         this.head = currentHead.next
-//         this.length --
-//         if (this.length === 0) {
-//             this.tail = null;
-//         }
-//         return currentHead; // head that was removed
-//     }
-
-// }
-
-// module.exports = {SinglyLinkedList}
+module.exports = {SinglyLinkedList}

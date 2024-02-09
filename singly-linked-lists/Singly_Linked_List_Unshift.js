@@ -68,3 +68,8 @@ var list = new SinglyLinkedList()
 list.push("HELLO") 
 list.push("GOODBYE") 
 list.push("!")
+
+
+module.exports = {SinglyLinkedList}
+
+// require('./whiteboard')
