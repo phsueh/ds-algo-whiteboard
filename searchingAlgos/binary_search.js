@@ -27,6 +27,9 @@
     // ], 100) // -1
 // )
 
+// ([1,2,3,4,5],2), // 1
+// ([1,2,3,4,5],6), // -1
+
 
 function binarySearch(arr, elem) {
     var start = 0;
@@ -41,7 +44,7 @@ function binarySearch(arr, elem) {
         middle = Math.floor((start + end) / 2);
     }
     if(arr[middle] === elem){
-        return middle;
+        return middle; 
     }
     return -1;
 }
