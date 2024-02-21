@@ -13,7 +13,10 @@
 // minSubArrayLen([1,4,16,22,5,7,8,9,10],39), // 3
 // minSubArrayLen([1,4,16,22,5,7,8,9,10],55), // 5
 // minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11), // 2
-// minSubArrayLen([1,4,16,22,5,7,8,9,10],95) // 0    
+// minSubArrayLen([1,4,16,22,5,7,8,9,10],95) // 0
+// minSubArrayLen([5,1,3,5,10,7,4,9,2,8], 15), // 2
+// minSubArrayLen([1,2,3,4,5], 11), // 3 ,
+// minSubArrayLen([1,4,4], 4) // 1 
 // )
 
 // Time Complexity - O(n)
@@ -43,6 +46,7 @@ function minSubArrayLen(arr, sum){
 
     // loop over array add arr[i] ++ until it equals num
     // find that length and store to a variable
+    // while-loop stops when star is greater than the arr lenght or when total is less than sum and end is greater than arr length
 
 }
 

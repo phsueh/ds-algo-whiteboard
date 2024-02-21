@@ -41,13 +41,9 @@ function countUniqueValues(arr){
         if (arr[i] !== arr[j]) {
             i++ // why is it when I switch up the order it produces a different result? - move the pointer up 1 AND THEN assign the new value
             arr[i] = arr[j]
-            
         }
         result = i + 1
     }
-
-    
-    
 
     // the result is going to arr[j] - NO this is completely wrong!
  
