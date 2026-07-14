@@ -65,21 +65,37 @@ class BinarySearchTree {
         }
         return false;
     }
-    BFS(){
-        var node = this.root,
-            data = [],
-            queue = [];
-        queue.push(node);
+    BFS(){ // left to right
+        // var node = this.root,
+        //     data = [],
+        //     queue = [];
+        // queue.push(node);
 
-        while(queue.length){
-           node = queue.shift();
-           data.push(node.value);
-           if(node.left) queue.push(node.left); // how is the right node being check on a left subtree, when does it switch, how is the stack working?
-           if(node.right) queue.push(node.right);
+        // while(queue.length){
+        //    node = queue.shift();
+        //    data.push(node.value);
+        //    if(node.left) queue.push(node.left);
+        //    if(node.right) queue.push(node.right);
+        // }
+        // return data;
+
+        // bfs uses a queue; 
+
+        let node = this.root;
+        let data = []; 
+        let queue = [];
+        queue.push(node); 
+
+        while (queue.length) {
+            node = queue.shift(); 
+            data.push(node.value); 
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
         }
-        return data;
+
+        return data; 
     }
-    DFSPreOrder(){ // making a copy
+    DFSPreOrder(){ // making a copy 
         var data = [];
         function traverse(node){
             data.push(node.value);
@@ -109,6 +125,24 @@ class BinarySearchTree {
         traverse(this.root);
         return data;
     }
+
+    deserialize(data) {
+
+    }
+
+
+}
+
+function serialize(tree) {
+    var data = []; 
+    function traverse(node) {
+        data.push(node.value); 
+        node.left ? traverse(node.left) : data.push(null);
+        node.right ? traverse(node.right) : data.push(null);
+    }
+    traverse(tree);
+    console.log("data", data); 
+    return data; 
 }
 
 
@@ -122,6 +156,32 @@ tree.insert(20);
 tree.DFSPreOrder();
 tree.DFSPostOrder();
 tree.DFSInOrder();
+serialize(tree.root); 
 
+// stack is LIFO
+// queue is fifo
 
+// Leetcode Problem 110: Balanced Binary Tree
+// Determine if a binary tree is height-balanced
 
+function isBalanced(root) {
+  function checkHeight(node) {
+    if (!node) return 0; // Base case: height of null node is 0
+
+    // Recursively compute the height of the left subtree
+    const leftHeight = checkHeight(node.left);
+    if (leftHeight === -1) return -1; // If left subtree is unbalanced, propagate -1
+
+    // Recursively compute the height of the right subtree
+    const rightHeight = checkHeight(node.right);
+    if (rightHeight === -1) return -1; // If right subtree is unbalanced, propagate -1
+
+    // Check if current node is unbalanced
+    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+
+    // Height is calculated here: max height of subtrees plus 1 for current node
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+
+  return checkHeight(root) !== -1; // Tree is balanced if height check does not return -1
+}

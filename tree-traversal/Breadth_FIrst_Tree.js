@@ -67,8 +67,8 @@ class BinarySearchTree {
     }
     BFS(){
         var node = this.root,
-            data = [],
-            queue = [];
+            data = [], // visited nodes 
+            queue = []; // nodes to visit
         queue.push(node);
 
         while(queue.length){
@@ -78,6 +78,22 @@ class BinarySearchTree {
            if(node.right) queue.push(node.right); // same thing here
         }
         return data;
+    }
+    myBFS() {
+        let node = this.root; 
+        let queue = []; // nodes to visit
+        let data = [];  // return list of nodes ordered in BFS approach
+
+        queue.push(node); 
+
+        while(queue.length) {
+            node = queue.shift();
+            data.push(node.value); 
+            if (node.left) queue.push(node.left); 
+            if (node.right) queue.push(node.right); 
+        }
+
+        return data; 
     }
 }
 
@@ -90,3 +106,6 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 tree.BFS();
+
+console.log("hello tree"); 
+console.log(tree.myBFS()); 

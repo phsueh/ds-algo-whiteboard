@@ -46,7 +46,7 @@
       }
 
       for (let key in obj1) {
-        if (!(key in obj2)){ // how do I check the key obj2?
+        if (!(key in obj2)){
           console.log(false)
           return false
         }
@@ -59,8 +59,6 @@
       console.log(true)
       return true
       
-      
-
       // Do I need a secound object?
         // how else will I track the frequency?
 

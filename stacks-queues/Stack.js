@@ -7,7 +7,7 @@ class Node {
 
 class Stack {
     constructor(){
-        this.first = null;
+        this.first = null; // this is the last added value to the stack not the "first" value in the stack 
         this.last = null;
         this.size = 0;
     }
@@ -21,7 +21,7 @@ class Stack {
             this.first = newNode;
             this.first.next = temp;
         }
-        return ++this.size;
+        return ++this.size; // pre-increment operator
     }
     pop(){
         if(!this.first) return null;
