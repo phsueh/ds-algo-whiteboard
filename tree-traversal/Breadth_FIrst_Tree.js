@@ -72,7 +72,7 @@ class BinarySearchTree {
         queue.push(node);
 
         while(queue.length){
-           node = queue.shift();
+           node = queue.shift(); // re-indexing issue
            data.push(node.value);
            if(node.left) queue.push(node.left); // pushing a new value into the queue causing the size to increase
            if(node.right) queue.push(node.right); // same thing here
