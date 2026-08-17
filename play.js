@@ -1,4 +1,4 @@
-console.log("hello world"); 
+// AI GENERATED SOLUTION
 
 var updateMatrix = function(mat) {
     const rows = mat.length;
@@ -74,3 +74,39 @@ var updateMatrix = function(mat) {
 
 updateMatrix([[0,0,0],[0,1,0],[0,0,0]]); 
 console.log("end"); 
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+
+
+
+//  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+//     Open brackets must be closed by the same type of brackets.
+//     Open brackets must be closed in the correct order.
+//     Every close bracket has a corresponding open bracket of the same type.
+
+var isValid = function(s) {
+        const stack = [];
+        const mapping = {
+            ')': '(',
+            '}': '{',
+            ']': '['
+        };
+
+        for (const c of s) {
+            if (Object.values(mapping).includes(c)) { // if c is an opening bracket push into the stack
+                stack.push(c);
+            } else if (mapping.hasOwnProperty(c)) { // if c is a closing bracket
+                if (!stack.length || mapping[c] !== stack.pop()) { // if the stack is empty nothing FALSE, if the last last value in the stack doesn't correspond the correct closing character FALSE
+                    return false;
+                }
+            }
+        }
+
+        return stack.length === 0;    
+};
