@@ -13,29 +13,30 @@ let input = "hello world 123"
 
 function play(s) {
 
-    let stack = [];
+    if (s.length % 2 > 0) return false; 
+
     let map = {
         "{" : "}",
         "(" : ")",
         "[" : "]"
     }
 
-    for (let char in s) {
+    let stack = [];
+    stack.push(s[0]); 
 
-        if (!map[s[char]]) {
-            console.log("s[char] ---> ", s[char])
-            console.log("false"); 
+    for (let i = 1; i < s.length; i++) {
+        if (map[s[i]]) {
+            stack.push(s[i])
+        } else if (map[stack.at(-1)] !== s[i]) {
             return false; 
+        } else if (map[stack.at(-1)] === s[i]) {
+            stack.pop();
         }
-        // check if there is a value in stack 
-        // only push open brackets to stack
-        console.log("s[char]", s[char]); 
     }
 
-    // let m = {}; 
-    // console.log("input : ", s[char])
-    // console.log(map["("]);  
-    // console.log(!!m["("]); 
+    if (stack.length > 0) return false; 
+
+    return true; 
 
 }
 
